@@ -5,20 +5,30 @@ import java.util.Scanner;
 public class Contador {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.println("Digite o primeiro parâmetro");
-        int parametroUm = s.nextInt();
-        System.out.println("Digite o segundo parâmetro");
-        int parametroDois = s.nextInt();
+        System.out.println("Você tera 3 tentativas\n ");
+        for (int i = 0; i < 3; i++) {
 
-        try {
-            //chamando o método contendo a lógica de contagem
-            contar(parametroUm, parametroDois);
+            System.out.println("Tentativa " + (i+1));
+            System.out.println("\nDigite o primeiro parâmetro");
+            int parametroUm = s.nextInt();
+            System.out.println("Digite o segundo parâmetro");
+            int parametroDois = s.nextInt();
 
-        }catch (ParametrosInvalidosException exception) {
-            System.out.println("O segundo parâmetro deve ser maior que o primeiro");
+            try {
+                //chamando o método contendo a lógica de contagem
+                contar(parametroUm, parametroDois);
+                break;
+
+            } catch (ParametrosInvalidosException exception) {
+                System.out.println("O segundo parâmetro deve ser maior que o primeiro");
+            }
+
         }
 
     }
+
+
+
     static void contar(int parametroUm, int parametroDois ) throws ParametrosInvalidosException {
         if (parametroUm > parametroDois){
             throw new ParametrosInvalidosException();
